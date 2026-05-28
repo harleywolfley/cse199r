@@ -2,3 +2,32 @@
     margin: 0;
     padding: 0;
 }
+
+/* Mobile Style */
+
+header {
+    width: 100%;
+    background-color: aliceblue;
+}
+
+main {
+    width: 100%;
+    background-color: blue;;
+}
+
+/* Computer Style */
+
+@media screen and (min-width: 550px) {
+
+header {
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+main {
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: green;
+}
+
+}
