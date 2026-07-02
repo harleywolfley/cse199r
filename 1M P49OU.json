@@ -1,0 +1,9 @@
+[
+    {
+        "date_time": "2026-06-02 01:10 PM",
+        "location": "Highway",
+        "classification": "Speeding",
+        "description": "20 mph over speed limit.",
+        "video_path": "asdf"
+    }
+]

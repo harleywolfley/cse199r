@@ -1,18 +1,65 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap');
+
+h1, h3 {
     margin: 0;
-    padding: 0;
+    font-family: 'Kelly Slab', sans-serif;
+}
+
+p, ul, li {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root {
+    --light-blue: rgb(0, 255, 229);
+    --blue: rgb(39, 189, 174);
+    --light-gray: rgb(160, 208, 202);
+    --gray: rgb(53, 70, 68);
+    --dark-gray: rgb(29, 39, 38);
+    --background-color: var(--gray);
+    --header-back: var(--dark-gray);
+    --header-text: var(--blue);
+    --para-back: var(--light-gray);
+    --para-text: var(--dark-gray);
+}
+
+body {
+    background-color: var(--gray);
+}
+
+h1, h3, p, div, section {
+        padding: 5px;
 }
 
 /* Mobile Style */
 
 header {
     width: 100%;
-    background-color: aliceblue;
+    background-color: var(--header-back);
+    color: var(--header-text);
+}
+
+header a {
+    text-decoration: none;
+    color: var(--blue);
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+}
+
+nav ul li {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 2px 0;
 }
 
 main {
     width: 100%;
-    background-color: blue;;
+    background-color: var(--para-back);
+    color: var(--para-text);
 }
 
 /* Computer Style */
@@ -22,12 +69,15 @@ main {
 header {
     max-width: 550px;
     margin: 0 auto;
+    background-color: var(--header-back);
+    color: var(--header-text);
 }
 
 main {
     max-width: 550px;
     margin: 0 auto;
-    background-color: green;
+    background-color: var(--para-back);
+    color: var(--para-text);
 }
 
 }

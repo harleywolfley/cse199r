@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Infraction</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">I D I O T</a></h1>
+        <p>Integrated Driving Infraction Observation Tracker</p>
+        <nav>
+            <ul>
+                <li><a href="add.html">Add Infraction</a></li>
+                <li><a href="find.html">Find Infraction</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <section id="search-by">
+                <h3>Search by:</h3>
+                <button type="submit" id="search-by-date">Date</button>
+                <button type="submit" id="search-by-location">Location</button>
+                <button type="submit" id="search-by-infraction">Infraction</button>
+            </section>
+            <section id="plate-section">
+                <h3>Plate:</h3>
+                <input type="search" id="plate-search-bar">
+                <button type="submit" id="plate-search-submit">Search</button>
+            </section>
+            <section>
+                <ul id="display-plate-list">
+                    <li>plate1</li>
+                    <li>plate2</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Date & Time:</h3>
+                <p>datetime</p>
+            </section>
+            <section>
+                <h3>Location:</h3>
+                <p>location</p>
+            </section>
+            <section>
+                <h3>Infraction Type:</h3>
+                <p>type</p>
+            </section>
+            <section>
+                <h3>Description:</h3>
+                <p>Description</p>
+            </section>
+            <section>
+                <h3>Video Path:</h3>
+                <p>Path</p>
+            </section>
+        </div>
+    </main>
+</body>
+<py-script src="IDIOT-Sorting.py" />
+</html>
