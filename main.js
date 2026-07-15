@@ -1,47 +1,61 @@
-const searchBar = ['one', 'two', 'three']
-const plateSearchBar = document.getElementById("plate-search-bar")
-const plateSearchSubmit = document.getElementById("plate-search-submit")
-const plateInput = ""
-const displayPlateList = document.getElementById("display-plate-list")
+const addSubmit = document.getElementById("button-save-infrac")
+const displayPlate = document.getElementById("last-input-infrac")
 
-function displayList(filteredItems) {
-    displayPlateList.innerHTML = ""
-    filteredItems.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        itemList.appendChild(li);
-    });
-}
-
-plateSearchBar.addEventListener('input', (event) => {
-    const searchString = event.target.value.toLowerCase();
-    const filteredItems = items.filter(item => {
-        return item.toLowerCase().includes(searchString)
-    })
-    displayList(filteredItems)
+addSubmit.addEventListener('click', (event) => {
+    event.preventDefault();
+    addInfraction()
 })
 
-displayList(displayPlateList)
-
-if (!plateInput){
-    console.log("No Infraction Content Recorded.")
-} else if (plateInput){
-    console.log("Infactions are documented.")
+function clearInfraction(){
+    document.getElementById("save-plate").value = '';
+    document.getElementById("save-dattime").value = '';
+    document.getElementById("save-location").value = '';
+    document.getElementById("save-infrac").value = '';
+    document.getElementById("save-desc").value = '';
+    document.getElementById("save-vid-path").value = '';
 }
 
-// // 4. Listen for typing events inside the input field
-// searchInput.addEventListener('input', (event) => {
-//   // Convert text to lowercase so search is not case-sensitive
-//   const searchString = event.target.value.toLowerCase();
-  
-//   // Filter array using string matching logic
-//   const filteredItems = items.filter(item => {
-//     return item.toLowerCase().includes(searchString);
-//   });
-  
-//   // Re-render only matching items
-//   displayItems(filteredItems);
-// });
+function addInfraction(){
+    const entry = {
+        plate: document.getElementById("save-plate").value,
+        dattime: document.getElementById("save-dattime").value,
+        location: document.getElementById("save-location").value,
+        infrac: document.getElementById("save-infrac").value,
+        desc: document.getElementById("save-desc").value,
+        vidPath: document.getElementById("save-vid-path").value
+    };
 
-// // 5. Initial render on page load
-// displayItems(items);
+    const infractions = JSON.parse(localStorage.getItem('infractions')) || [];
+    infractions.push(entry);
+    localStorage.setItem('infractions', JSON.stringify(infractions));
+
+    displayInfraction(entry);
+    clearInfraction();
+}
+
+function displayInfraction(entry){
+    displayPlate.innerHTML = `<h3 id="display-plate">Last Saved:</h3>
+            <h4>Plate:</h4>
+            <p>${entry.plate}</p>
+            <h4>Date & Time:</h4>
+            <p>${entry.dattime}</p>
+            <h4>Location</h4>
+            <p>${entry.location}</p>
+            <h4>Infraction Type:</h4>
+            <p>${entry.infrac}</p>
+            <h4>Description:</h4>
+            <p>${entry.desc}</p>
+            <h4>Video Path:</h4>
+            <p>${entry.vidPath}</p>`;
+}
+
+function init(){
+    const infractions = JSON.parse(localStorage.getItem('infractions')) || [];
+    if (infractions.length > 0) {
+        displayInfraction(infractions[infractions.length - 1]);
+    } else {
+        displayPlate.innerHTML = `<h3 id="display-plate">Last Saved:</h3><p>Please save an infraction.</p>`
+    }
+}
+
+init()

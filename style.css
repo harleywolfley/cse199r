@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap');
 
-h1, h3 {
-    margin: 0;
-    font-family: 'Kelly Slab', sans-serif;
-}
-
 p, ul, li {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
@@ -22,13 +17,17 @@ p, ul, li {
     --header-text: var(--blue);
     --para-back: var(--light-gray);
     --para-text: var(--dark-gray);
+
+    --header-font: 'Kelly Slab', sans-serif;
+    --para-font: 'Courier New', Courier, monospace;
 }
 
 body {
     background-color: var(--gray);
+    margin: 0;
 }
 
-h1, h3, p, div, section {
+h1, h3, h4, p, div, section {
         padding: 5px;
 }
 
@@ -45,6 +44,19 @@ header a {
     color: var(--blue);
 }
 
+header h1, header h3 {
+    margin: 0;
+    font-family: var(--header-font);
+}
+
+hr {
+    background-color: var(--blue);
+    height: 1px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
 nav ul {
     display: flex;
     padding: 0;
@@ -53,7 +65,11 @@ nav ul {
 nav ul li {
     list-style-type: none;
     margin: 0 auto;
-    padding: 2px 0;
+    padding: 7px 0;
+}
+
+.heroimg {
+    width: 100%;
 }
 
 main {
@@ -62,22 +78,103 @@ main {
     color: var(--para-text);
 }
 
+.center {
+    text-align: center;
+}
+
+#addmain section img {
+    width: 100%;
+    border: solid 2px var(--gray);
+}
+
+#addmain section a h3 {
+    text-align: center;
+    margin: 0 auto;
+    color: var(--dark-gray);
+    text-decoration: none;
+}
+
+form {
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+label, input {
+    padding: 2%;
+}
+
+label {
+    font-family: var(--header-font);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+input {
+    font-family: var(--para-font);
+}
+
+button {
+    width: 40%;
+}
+
+#display-plate h3 {
+    padding: 5%;
+}
+
+main h3 {
+    font-family: var(--header-font);
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+main h4 {
+    margin: 0;
+    font-family: var(--header-font);
+}
+
+footer {
+    color: var(--blue);
+    font-family: var(--para-text);
+    background-color: var(--dark-gray);
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
 /* Computer Style */
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 800px) {
 
 header {
-    max-width: 550px;
+    max-width: 50%;
     margin: 0 auto;
     background-color: var(--header-back);
     color: var(--header-text);
 }
 
+.heroimg {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
 main {
-    max-width: 550px;
+    max-width: 50%;
     margin: 0 auto;
     background-color: var(--para-back);
     color: var(--para-text);
+}
+
+#addmain {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+footer {
+    max-width: 50%;
 }
 
 }
